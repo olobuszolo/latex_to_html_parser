@@ -1,0 +1,11 @@
+expression ::= term (PLUS|MINUS term)*
+term ::= factor (TIMES|DIVIDE factor)*
+factor ::= NUMBER | VARIABLE | function | integral | fraction
+function ::= SQRT | LOG | LN | SUM
+integral ::= (INTEGRAL | DOUBLE_INTEGRAL | TRIPLE_INTEGRAL) limits expression
+limits ::= LBRACE NUMBER COMMA NUMBER RBRACE
+vector ::= VECTOR VARIABLE
+matrix ::= MATRIX_BEGIN (row MATRIX_NEWLINE)* row MATRIX_END
+row ::= (NUMBER | VARIABLE) (MATRIX_SEP (NUMBER | VARIABLE))*
+relation ::= expression (GEQ | LEQ | NEQ | IN | NOTIN) expression
+logic ::= FORALL VARIABLE EXISTS VARIABLE
